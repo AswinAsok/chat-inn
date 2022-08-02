@@ -5,6 +5,8 @@ import SignUp from "./Pages/Authentication/SignUp/SignUp";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Chat from "./Pages/Chat/Chat";
+import { getFirestore } from "firebase/firestore";
 
 function App() {
   const firebaseConfig = {
@@ -19,12 +21,14 @@ function App() {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
+  const db = getFirestore(app);
   return (
     <div className="App">
       <Router>
         <Routes>
           <Route path="/login" element={<Login auth={auth} />} />
           <Route path="/signup" element={<SignUp auth={auth} />} />
+          <Route path="/chat" element={<Chat auth={auth} db={db} />} />
         </Routes>
       </Router>
     </div>

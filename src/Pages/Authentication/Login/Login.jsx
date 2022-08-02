@@ -1,4 +1,3 @@
-import { initializeApp } from "firebase/app";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 
