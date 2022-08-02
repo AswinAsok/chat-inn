@@ -1,31 +1,18 @@
-import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import styles from "./SignUp.module.css";
 
-const SignUp = () => {
-  const firebaseConfig = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    // databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  };
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-
+const SignUp = ({ auth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const signup = () => {
-    const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+        console.log(user.accessToken)
         // ...
       })
       .catch((error) => {
@@ -45,7 +32,7 @@ const SignUp = () => {
             placeholder="Enter Email Address"
             type="email"
             name=""
-            id="email"
+            id="semail"
             className={styles.email_field}
             onChange={(e) => {
               setEmail(e.target.value);
@@ -55,7 +42,7 @@ const SignUp = () => {
             placeholder="Enter your password"
             type="password"
             name=""
-            id="password"
+            id="spassword"
             className={styles.password_field}
             onChange={(e) => setPassword(e.target.value)}
           />
