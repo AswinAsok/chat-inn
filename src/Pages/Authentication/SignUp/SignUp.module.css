@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.page_container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pagemain_container {
+  padding: 2rem;
+  color: white;
+  background-color: #8f00ff;
+}
+
+.welcome_heading {
+  font-family: "Archivo", sans-serif;
+  font-size: 2rem;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.welcome_text {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.email_field,
+.password_field {
+  text-align: left;
+  border: none;
+  border-radius: 2px;
+  padding: 0.75rem 3.75rem;
+  padding-left: 0.75rem;
+  margin: 0.5rem 0rem;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.signup_btn {
+  display: block;
+  padding: 0.5rem 2rem;
+  background-color: #8f00ff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  margin-top: 1rem;
+  color: white;
+}
+
+@media only screen and (min-width: 1000px) {
+  .page_container {
+    margin: auto;
+    max-width: 1000px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .signup_box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .email_field,
+  .password_field {
+    text-align: left;
+    border: none;
+    border-radius: 2px;
+    padding: 0.95rem 10.75rem;
+    padding-left: 0.75rem;
+    margin: 0.5rem 0rem;
+  }
+
+  .welcome_heading {
+    font-size: 3.5rem;
+    margin-bottom: 0rem;
+  }
+
+  .welcome_text {
+    font-size: 1rem;
+    margin: auto;
+    text-align: center;
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+}

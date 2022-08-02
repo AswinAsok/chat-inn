@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <SignUp auth={auth} />
-      <Login auth={auth} />
+      {/* <Login auth={auth} /> */}
     </div>
   );
 }
