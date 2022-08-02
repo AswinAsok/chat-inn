@@ -2,33 +2,25 @@ import React, { useState, useEffect } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 
 const Chat = ({ auth, db }) => {
-  const [messages, setMessages] = useState([]);
-  useEffect(() => {
-    console.log("Hi");
+  const getMessages = () => {
     onSnapshot(
       collection(db, "messages"),
       (snapshot) => {
         snapshot.docs.map(function (doc) {
-          console.log(doc.data());
+          console.log(doc.data().text);
         });
       },
       (error) => {
         console.log(error);
       }
     );
+  };
 
-    // Stop listening to changes
-    console.log("Bye");
-  }, [db]);
+  useEffect(() => {
+    getMessages();
+  }, []);
 
-  return (
-    <ul>
-      {messages.map((message) => (
-        <li key={message.id}>{message.text}</li>
-      ))}
-      dey dey
-    </ul>
-  );
+  return <p>Working Hard</p>;
 };
 
 export default Chat;
