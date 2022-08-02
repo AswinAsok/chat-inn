@@ -20,8 +20,8 @@ function App() {
   const auth = getAuth();
   return (
     <div className="App">
-      <SignUp auth={auth} />
-      {/* <Login auth={auth} /> */}
+      {/* <SignUp auth={auth} /> */}
+      <Login auth={auth} />
     </div>
   );
 }
