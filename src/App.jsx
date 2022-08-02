@@ -4,6 +4,7 @@ import SignUp from "./Pages/Authentication/SignUp/SignUp";
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const firebaseConfig = {
@@ -20,8 +21,12 @@ function App() {
   const auth = getAuth();
   return (
     <div className="App">
-      {/* <SignUp auth={auth} /> */}
-      <Login auth={auth} />
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login auth={auth} />} />
+          <Route path="/signup" element={<SignUp auth={auth} />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

@@ -32,10 +32,10 @@ const Login = ({ auth }) => {
           <div className={styles.welcome_container}>
             <p className={styles.welcome_heading}>Login to Chat'in</p>
             <p className={styles.welcome_text}>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla
-              vel deserunt incidunt cum neque nisi quibusdam impedit! Nobis,
-              architecto asperiores? Nihil sequi rerum fuga aliquid? Quae
-              blanditiis voluptas voluptate aperiam.
+              Welcome to Chat'in. Hope you already have already created a
+              account else click here. If you are new here this is a simple
+              application with a global chat system. Everyone can chat here and
+              everyone will see it.
             </p>
           </div>
           <div className={styles.signup_container}>
@@ -63,7 +63,7 @@ const Login = ({ auth }) => {
                 className={styles.signup_btn}
                 type="submit"
               >
-               Login
+                Login
               </button>
             </div>
           </div>
