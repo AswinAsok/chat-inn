@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 
 const Chat = ({ auth, db, setMessages, messages }) => {
-  const array = [];
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    setIsLoading(true);
+    const q = query(collection(db, "messages"), orderBy("timestamp", "desc"));
     onSnapshot(
-      collection(db, "messages"),
+      q,
       (snapshot) => {
+        setMessages([]);
         snapshot.docs.map(function (doc) {
           setMessages((prev) => [...prev, doc.data().text]);
         });
