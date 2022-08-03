@@ -1,26 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 
-const Chat = ({ auth, db }) => {
-  const getMessages = () => {
+const Chat = ({ auth, db, setMessages, messages }) => {
+  const array = [];
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
     onSnapshot(
       collection(db, "messages"),
       (snapshot) => {
         snapshot.docs.map(function (doc) {
-          console.log(doc.data().text);
+          setMessages((prev) => [...prev, doc.data().text]);
         });
       },
       (error) => {
         console.log(error);
       }
     );
-  };
-
-  useEffect(() => {
-    getMessages();
+    setIsLoading(false);
   }, []);
-
-  return <p>Working Hard</p>;
+  console.log(messages);
+  return (
+    <>
+      {isLoading && <p>Loading</p>}
+      {!isLoading && <p>Show data {messages[0]}</p>}
+    </>
+  );
 };
 
 export default Chat;

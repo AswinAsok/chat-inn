@@ -7,8 +7,10 @@ import { getAuth } from "firebase/auth";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Chat from "./Pages/Chat/Chat";
 import { getFirestore } from "firebase/firestore";
+import { useState } from "react";
 
 function App() {
+  const [messages, setMessages] = useState([]);
   const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -28,7 +30,17 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login auth={auth} />} />
           <Route path="/signup" element={<SignUp auth={auth} />} />
-          <Route path="/chat" element={<Chat auth={auth} db={db} />} />
+          <Route
+            path="/chat"
+            element={
+              <Chat
+                auth={auth}
+                db={db}
+                setMessages={setMessages}
+                messages={messages}
+              />
+            }
+          />
         </Routes>
       </Router>
     </div>
