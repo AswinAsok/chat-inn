@@ -3,7 +3,6 @@
   color: white;
   background-color: #8f00ff;
   min-height: 100vh;
-  /*  */
 }
 
 .chat_container {
@@ -15,15 +14,23 @@
   overflow-y: scroll;
 }
 
-.message_box {
+.message_text {
   background-color: #8f00ff;
   color: white;
-  margin: 0.5rem;
   padding: 0.75rem;
   padding-left: 1rem;
-  border-radius: 100px;
   font-family: "Noto Sans", sans-serif;
   font-size: 0.9rem;
+}
+
+.message_box {
+  margin: 1rem 0;
+}
+
+.username {
+  color: #404040;
+  font-family: "Poppins";
+  font-size: 0.8rem;
 }
 
 .inputmain_container {
@@ -46,9 +53,6 @@
   border: none;
   color: #fff;
   border-radius: 5px;
-}
-
-.message_box {
 }
 
 @media only screen and (min-width: 1000px) {

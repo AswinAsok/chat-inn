@@ -1,17 +1,20 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import React, { useState } from "react";
 import styles from "./SignUp.module.css";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = ({ auth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const navigate = useNavigate();
 
   const signup = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        localStorage.setItem("token", user.accessToken);
         console.log(user.accessToken);
         // ...
       })
@@ -22,6 +25,16 @@ const SignUp = ({ auth }) => {
         console.log(errorMessage);
         // ..
       });
+
+    updateProfile(auth.currentUser, {
+      displayName: username,
+    })
+      .then((response) => {
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -31,14 +44,24 @@ const SignUp = ({ auth }) => {
           <div className={styles.welcome_container}>
             <p className={styles.welcome_heading}>Welcome to Chat'in</p>
             <p className={styles.welcome_text}>
-              Welcome to Chat'in. if already have already created a
-              account else click here. If you are new here this is a simple
-              application with a global chat system. Everyone can chat here and
-              everyone will see it.
+              Welcome to Chat'in. if already have already created a account else
+              click here. If you are new here this is a simple application with
+              a global chat system. Everyone can chat here and everyone will see
+              it.
             </p>
           </div>
           <div className={styles.signup_container}>
             <div className={styles.signup_box}>
+              <input
+                placeholder="Enter Username"
+                type="text"
+                name=""
+                id="username"
+                className={styles.email_field}
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+              />
               <input
                 placeholder="Enter Email Address"
                 type="email"

@@ -17,6 +17,7 @@ const Chat = ({ auth, db, setMessages, messages }) => {
   const sentMessage = async () => {
     const docRef = await addDoc(collection(db, "messages"), {
       text: message,
+      displayName: auth.currentUser.displayName,
       timestamp: Timestamp.now(),
     });
     console.log("Document written with ID: ", docRef.id);
@@ -49,9 +50,12 @@ const Chat = ({ auth, db, setMessages, messages }) => {
             <div className={styles.chat_container}>
               <div className={styles.chat_view}>
                 {messages.map((message) => (
-                  <div className={styles.message_box}>
-                    <p className={styles.message_text}>{message}</p>
-                  </div>
+                  <>
+                    <div className={styles.message_box}>
+                      <p className={styles.message_text}>{message}</p>
+                      <p className={styles.username}>Aswin Asok</p>
+                    </div>
+                  </>
                 ))}
               </div>
             </div>

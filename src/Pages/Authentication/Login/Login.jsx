@@ -1,19 +1,22 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import styles from "./Login.module.css";
 
 const Login = ({ auth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [logined, setLogined] = useState(false);
+  const navigate = useNavigate();
   const login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
         console.log(user.accessToken);
+        localStorage.setItem("token", user.accessToken);
+        navigate("/chat");
         // ...
       })
       .catch((error) => {
