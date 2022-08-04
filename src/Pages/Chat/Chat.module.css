@@ -11,10 +11,8 @@
   color: #8f00ff;
   height: 60vh;
   padding: 2rem;
-}
-
-.chat_view {
-
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .message_box {
@@ -24,6 +22,8 @@
   padding: 0.75rem;
   padding-left: 1rem;
   border-radius: 100px;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 0.9rem;
 }
 
 .inputmain_container {
