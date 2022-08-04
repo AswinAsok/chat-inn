@@ -14,7 +14,12 @@
   overflow-y: scroll;
 }
 
-.message_text {
+.chat_view {
+  margin: 2rem 0;
+}
+
+.message_text,
+.message_text1 {
   background-color: #8f00ff;
   color: white;
   padding: 0.75rem;
@@ -23,14 +28,23 @@
   font-size: 0.9rem;
 }
 
+.message_text1 {
+  background-color: #6716a5;
+}
+
 .message_box {
   margin: 1rem 0;
 }
 
-.username {
+.username,
+.username1 {
   color: #404040;
   font-family: "Poppins";
   font-size: 0.8rem;
+}
+
+.username1 {
+  color: #6716a5;
 }
 
 .inputmain_container {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   collection,
   onSnapshot,
@@ -6,11 +6,15 @@ import {
   orderBy,
   addDoc,
   Timestamp,
+  toDate,
+  toDateString,
+  toTimeString,
 } from "firebase/firestore";
 
 import styles from "./Chat.module.css";
 
 const Chat = ({ auth, db, setMessages, messages }) => {
+  const bottomRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");
 
@@ -24,6 +28,15 @@ const Chat = ({ auth, db, setMessages, messages }) => {
   };
 
   useEffect(() => {
+    // 👇️ scroll to bottom every time messages change
+    bottomRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "start",
+    });
+  }, [messages]);
+
+  useEffect(() => {
     console.log(auth.currentUser);
     setIsLoading(true);
     onSnapshot(
@@ -31,13 +44,26 @@ const Chat = ({ auth, db, setMessages, messages }) => {
       (snapshot) => {
         setMessages([]);
         snapshot.docs.map(function (doc) {
-          setMessages((prev) => [...prev, doc.data().text]);
+          console.log(doc.data());
+          setMessages((prev) => [
+            ...prev,
+            {
+              text: doc.data().text,
+              displayName: doc.data().displayName,
+              timestamp: `${doc.data().timestamp.toDate().toDateString()}, ${doc
+                .data()
+                .timestamp.toDate()
+                .toLocaleTimeString()}`,
+            },
+          ]);
         });
       },
       (error) => {
         console.log(error);
       }
     );
+
+    console.log(messages);
     setIsLoading(false);
   }, []);
 
@@ -52,11 +78,26 @@ const Chat = ({ auth, db, setMessages, messages }) => {
                 {messages.map((message) => (
                   <>
                     <div className={styles.message_box}>
-                      <p className={styles.message_text}>{message}</p>
-                      <p className={styles.username}>Aswin Asok</p>
+                      {message.displayName != auth.currentUser.displayName && (
+                        <>
+                          <p className={styles.message_text}>{message.text}</p>
+                          <p className={styles.username}>
+                            {message.displayName}, {message.timestamp}
+                          </p>
+                        </>
+                      )}
+                      {message.displayName === auth.currentUser.displayName && (
+                        <>
+                          <p className={styles.message_text1}>{message.text}</p>
+                          <p className={styles.username1}>
+                            {message.displayName}, {message.timestamp}
+                          </p>
+                        </>
+                      )}
                     </div>
                   </>
                 ))}
+                <div ref={bottomRef} />
               </div>
             </div>
             <div className={styles.inputmain_container}>
