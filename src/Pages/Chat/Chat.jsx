@@ -10,10 +10,14 @@ import {
   toDateString,
   toTimeString,
 } from "firebase/firestore";
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en";
 
 import styles from "./Chat.module.css";
 
 const Chat = ({ auth, db, setMessages, messages }) => {
+  TimeAgo.addDefaultLocale(en)
+  const timeAgo = new TimeAgo("en-US");
   const bottomRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");
@@ -50,10 +54,7 @@ const Chat = ({ auth, db, setMessages, messages }) => {
             {
               text: doc.data().text,
               displayName: doc.data().displayName,
-              timestamp: `${doc.data().timestamp.toDate().toDateString()}, ${doc
-                .data()
-                .timestamp.toDate()
-                .toLocaleTimeString()}`,
+              timestamp: `${timeAgo.format(doc.data().timestamp.toDate())}`,
             },
           ]);
         });
