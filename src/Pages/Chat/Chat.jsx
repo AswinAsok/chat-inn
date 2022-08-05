@@ -11,10 +11,12 @@ import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 
 import styles from "./Chat.module.css";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 
 const Chat = ({ auth, db, setMessages, messages }) => {
   TimeAgo.addDefaultLocale(en);
+  const navigate = useNavigate();
   const timeAgo = new TimeAgo("en-US");
   const bottomRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +28,7 @@ const Chat = ({ auth, db, setMessages, messages }) => {
       displayName: auth.currentUser.displayName,
       timestamp: Timestamp.now(),
     });
-    console.log("Document written with ID: ", docRef.id);
+    setMessage("");
   };
 
   useEffect(() => {
@@ -39,7 +41,8 @@ const Chat = ({ auth, db, setMessages, messages }) => {
   }, [messages]);
 
   useEffect(() => {
-    console.log(auth.currentUser);
+    console.log(auth.current);
+
     setIsLoading(true);
     onSnapshot(
       query(collection(db, "messages"), orderBy("timestamp", "asc")),
@@ -114,15 +117,23 @@ const Chat = ({ auth, db, setMessages, messages }) => {
                 type="text"
                 name="input"
                 id="input"
+                value={message}
                 placeholder="Enter Message Here!"
                 className={styles.input_field}
                 onChange={(e) => {
                   setMessage(e.target.value);
                 }}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter" && message.length > 0) {
+                    sentMessage();
+                  }
+                }}
               />
               <button
                 onClick={() => {
-                  sentMessage();
+                  if (message.length > 0) {
+                    sentMessage();
+                  }
                 }}
                 className={styles.sent_btn}
               >

@@ -42,7 +42,7 @@ const SignUp = ({ auth }) => {
       <div className={styles.pagemain_container}>
         <div className={styles.page_container}>
           <div className={styles.welcome_container}>
-            <p className={styles.welcome_heading}>Welcome to Chat'in</p>
+            <p className={styles.welcome_heading}>Welcome to Chat'inn</p>
             <p className={styles.welcome_text}>
               Welcome to Chat'in. if already have already created a account else
               click here. If you are new here this is a simple application with

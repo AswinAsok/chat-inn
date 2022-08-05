@@ -2,6 +2,14 @@
   padding: 2rem;
   color: white;
   background-color: #8f00ff;
+  opacity: 1;
+  background-image: radial-gradient(
+      #e5c3ff 1.2000000000000002px,
+      transparent 1.2000000000000002px
+    ),
+    radial-gradient(#e5c3ff 1.2000000000000002px, #8f00ff 1.2000000000000002px);
+  background-size: 48px 48px;
+  background-position: 0 0, 24px 24px;
   min-height: 100vh;
 }
 
@@ -30,6 +38,7 @@
   color: #8f00ff;
   height: 60vh;
   padding: 2rem;
+  border-radius: 0px 0 5px 5px ;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -126,4 +135,5 @@
 .white_space {
   background-color: #fff;
   height: 3rem;
+  border-radius: 5px 5px 0 0;
 }

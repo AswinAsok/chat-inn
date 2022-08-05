@@ -7,7 +7,6 @@ import styles from "./Login.module.css";
 const Login = ({ auth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [logined, setLogined] = useState(false);
   const navigate = useNavigate();
   const login = () => {
     signInWithEmailAndPassword(auth, email, password)
@@ -32,7 +31,7 @@ const Login = ({ auth }) => {
       <div className={styles.pagemain_container}>
         <div className={styles.page_container}>
           <div className={styles.welcome_container}>
-            <p className={styles.welcome_heading}>Login to Chat'in</p>
+            <p className={styles.welcome_heading}>Login to Chat'inn</p>
             <p className={styles.welcome_text}>
               Welcome to Chat'in. Hope you already have already created a
               account else click here. If you are new here this is a simple

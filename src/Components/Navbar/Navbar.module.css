@@ -1,5 +1,9 @@
 .navbarmain_container {
   background-color: #8f00ff;
+  opacity: 1;
+  background-image:  radial-gradient(#e5c3ff 1.2000000000000002px, transparent 1.2000000000000002px), radial-gradient(#e5c3ff 1.2000000000000002px, #8f00ff 1.2000000000000002px);
+  background-size: 48px 48px;
+  background-position: 0 0,24px 24px;
   color: white;
   font-family: "Noto Sans";
   font-weight: 600;

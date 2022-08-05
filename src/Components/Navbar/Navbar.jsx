@@ -22,11 +22,11 @@ const Navbar = ({ auth }) => {
         <div className={styles.navbar}>
           <div className={styles.navbar_text}>
             <p className={styles.product}>
-              Lets
+              The
               <br />
               Chat
               <br />
-              'In
+              'Inn
             </p>
             <hr />
             <p className={styles.tagline}>
