@@ -6,9 +6,6 @@ import {
   orderBy,
   addDoc,
   Timestamp,
-  toDate,
-  toDateString,
-  toTimeString,
 } from "firebase/firestore";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
@@ -16,7 +13,7 @@ import en from "javascript-time-ago/locale/en";
 import styles from "./Chat.module.css";
 
 const Chat = ({ auth, db, setMessages, messages }) => {
-  TimeAgo.addDefaultLocale(en)
+  TimeAgo.addDefaultLocale(en);
   const timeAgo = new TimeAgo("en-US");
   const bottomRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -78,21 +75,29 @@ const Chat = ({ auth, db, setMessages, messages }) => {
               <div className={styles.chat_view}>
                 {messages.map((message) => (
                   <>
-                    <div className={styles.message_box}>
-                      {message.displayName != auth.currentUser.displayName && (
+                    <div>
+                      {message.displayName !== auth.currentUser.displayName && (
                         <>
-                          <p className={styles.message_text}>{message.text}</p>
-                          <p className={styles.username}>
-                            {message.displayName}, {message.timestamp}
-                          </p>
+                          <div className={styles.received_msg}>
+                            <p className={styles.message_text}>
+                              {message.text}
+                            </p>
+                            <p className={styles.username}>
+                              {message.displayName}, {message.timestamp}
+                            </p>
+                          </div>
                         </>
                       )}
                       {message.displayName === auth.currentUser.displayName && (
                         <>
-                          <p className={styles.message_text1}>{message.text}</p>
-                          <p className={styles.username1}>
-                            {message.displayName}, {message.timestamp}
-                          </p>
+                          <div className={styles.send_msg}>
+                            <p className={styles.message_text1}>
+                              {message.text}
+                            </p>
+                            <p className={styles.username1}>
+                              {message.displayName}, {message.timestamp}
+                            </p>
+                          </div>
                         </>
                       )}
                     </div>

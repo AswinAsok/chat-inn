@@ -12,12 +12,12 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #8F00FF ;
+  background: #8f00ff;
 }
 
 /* Handle on hover */
@@ -34,10 +34,6 @@
   overflow-y: scroll;
 }
 
-.chat_view {
-  margin: 2rem 0;
-}
-
 .message_text,
 .message_text1 {
   background-color: #8f00ff;
@@ -49,7 +45,7 @@
 }
 
 .message_text1 {
-  background-color:#7700d4;
+  background-color: #7700d4;
 }
 
 .message_box {
@@ -95,4 +91,27 @@
     max-width: 1000px;
     align-items: center;
   }
+}
+
+.message_text,
+.message_text1 {
+  width: fit-content;
+}
+
+.received_msg,
+.send_msg {
+  margin: 0.5rem 0;
+}
+
+.send_msg {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chat_view {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  
 }
