@@ -16,7 +16,15 @@ const SignUp = ({ auth }) => {
         const user = userCredential.user;
         localStorage.setItem("token", user.accessToken);
         console.log(user.accessToken);
-        // ...
+        updateProfile(auth.currentUser, {
+          displayName: username,
+        })
+          .then((response) => {
+            navigate("/login");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -26,15 +34,7 @@ const SignUp = ({ auth }) => {
         // ..
       });
 
-    updateProfile(auth.currentUser, {
-      displayName: username,
-    })
-      .then((response) => {
-        navigate("/login");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    
   };
 
   return (

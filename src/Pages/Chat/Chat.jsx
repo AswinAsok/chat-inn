@@ -34,6 +34,12 @@ const Chat = ({ auth, db, setMessages, messages }) => {
   };
 
   useEffect(() => {
+    if (auth.currentUser === null) {
+      navigate("/login");
+    }
+  }, []);
+
+  useEffect(() => {
     // 👇️ scroll to bottom every time messages change
     bottomRef.current?.scrollIntoView({
       behavior: "smooth",
@@ -115,21 +121,25 @@ const Chat = ({ auth, db, setMessages, messages }) => {
                         )}
                       {message.text === "uchj8899" && (
                         <>
-                          <p className={styles.displayName}>{message.displayName} has joined the Inn</p>
+                          <p className={styles.displayName}>
+                            {message.displayName} has joined the Inn
+                          </p>
                         </>
                       )}
-                      {message.text !== "uchj8899" && message.displayName === auth.currentUser.displayName && (
-                        <>
-                          <div className={styles.send_msg}>
-                            <p className={styles.message_text1}>
-                              {message.text}
-                            </p>
-                            <p className={styles.username1}>
-                              {message.displayName}, {message.timestamp}
-                            </p>
-                          </div>
-                        </>
-                      )}
+                      {message.text !== "uchj8899" &&
+                        message.displayName ===
+                          auth.currentUser.displayName && (
+                          <>
+                            <div className={styles.send_msg}>
+                              <p className={styles.message_text1}>
+                                {message.text}
+                              </p>
+                              <p className={styles.username1}>
+                                {message.displayName}, {message.timestamp}
+                              </p>
+                            </div>
+                          </>
+                        )}
                     </div>
                   </>
                 ))}
