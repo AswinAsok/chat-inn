@@ -11,6 +11,7 @@ import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
 
 import styles from "./Chat.module.css";
+import Navbar from "../../Components/Navbar/Navbar";
 
 const Chat = ({ auth, db, setMessages, messages }) => {
   TimeAgo.addDefaultLocale(en);
@@ -67,6 +68,7 @@ const Chat = ({ auth, db, setMessages, messages }) => {
 
   return (
     <>
+      <Navbar auth={auth} />
       {isLoading && <p>Loading</p>}
       {!isLoading && (
         <div className={styles.chatmain_container}>
@@ -104,7 +106,6 @@ const Chat = ({ auth, db, setMessages, messages }) => {
                     </div>
                   </>
                 ))}
-               
               </div>
               <div ref={bottomRef} />
             </div>

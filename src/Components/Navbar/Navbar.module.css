@@ -1,0 +1,71 @@
+.navbarmain_container {
+  background-color: #8f00ff;
+  color: white;
+  font-family: "Noto Sans";
+  font-weight: 600;
+
+  padding: 1rem;
+  padding-top: 2rem;
+}
+
+.navbar_text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.product,
+.tagline {
+  line-height: 1rem;
+}
+
+.tagline {
+  text-align: left;
+}
+
+.product {
+  text-align: right;
+}
+
+.navbar_text hr {
+  border: none;
+  width: 0.15rem;
+  border-radius: 3px;
+  background-color: #fff;
+  height: 3rem;
+  margin: 0 0.75rem;
+}
+
+.navbar {
+  margin: 0 2rem;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+}
+
+.logout {
+  display: none;
+}
+
+@media only screen and (min-width: 1000px) {
+  .navbar {
+    margin: auto;
+    max-width: 1000px;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+  }
+
+  .logout {
+    display: block;
+    background-color: #fff;
+    color: #8f00ff;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-family: "Poppins", sans-serif;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+}
