@@ -103,6 +103,14 @@
   margin: 0.5rem 0;
 }
 
+.message_text {
+  border-radius: 15px 15px 15px 0px;
+}
+
+.message_text1 {
+  border-radius: 15px 15px 0 15px;
+}
+
 .send_msg {
   display: flex;
   flex-direction: column;
@@ -113,5 +121,9 @@
   margin: 2rem 0;
   display: flex;
   flex-direction: column;
-  
+}
+
+.white_space {
+  background-color: #fff;
+  height: 3rem;
 }

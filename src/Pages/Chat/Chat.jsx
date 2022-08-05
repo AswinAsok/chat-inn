@@ -71,6 +71,7 @@ const Chat = ({ auth, db, setMessages, messages }) => {
       {!isLoading && (
         <div className={styles.chatmain_container}>
           <div className={styles.chat_main}>
+            <div className={styles.white_space}>hi</div>
             <div className={styles.chat_container}>
               <div className={styles.chat_view}>
                 {messages.map((message) => (
@@ -103,8 +104,9 @@ const Chat = ({ auth, db, setMessages, messages }) => {
                     </div>
                   </>
                 ))}
-                <div ref={bottomRef} />
+               
               </div>
+              <div ref={bottomRef} />
             </div>
             <div className={styles.inputmain_container}>
               <input
