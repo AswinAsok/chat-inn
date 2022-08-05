@@ -1,10 +1,11 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./Login.module.css";
 
-const Login = ({ auth }) => {
+const Login = ({ auth, db }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -15,6 +16,9 @@ const Login = ({ auth }) => {
         const user = userCredential.user;
         console.log(user.accessToken);
         localStorage.setItem("token", user.accessToken);
+        setDoc(doc(db, "activeUsers", email), {
+          displayName: user.displayName,
+        });
         navigate("/chat");
         // ...
       })

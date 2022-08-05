@@ -71,7 +71,7 @@ const Chat = ({ auth, db, setMessages, messages }) => {
 
   return (
     <>
-      <Navbar auth={auth} />
+      <Navbar auth={auth} db={db} />
       {isLoading && <p>Loading</p>}
       {!isLoading && (
         <div className={styles.chatmain_container}>

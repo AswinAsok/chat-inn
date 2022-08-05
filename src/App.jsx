@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/login" element={<Login auth={auth} />} />
+          <Route path="/login" element={<Login auth={auth} db={db} />} />
           <Route path="/signup" element={<SignUp auth={auth} />} />
           <Route
             path="/chat"

@@ -2,10 +2,16 @@ import React from "react";
 import styles from "./Navbar.module.css";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
+import { doc, deleteDoc } from "firebase/firestore";
 
-const Navbar = ({ auth }) => {
+const Navbar = ({ auth, db }) => {
   const navigate = useNavigate();
-  const logout = () => {
+
+  const logout = async () => {
+    console.log(auth.currentUser.email === "elon@musk.com");
+    const res = await deleteDoc(doc(db, "activeUsers", auth.currentUser.email));
+    console.log(res);
+    console.log(auth.currentUser.email);
     signOut(auth)
       .then(() => {
         console.log("Signed Out!");
