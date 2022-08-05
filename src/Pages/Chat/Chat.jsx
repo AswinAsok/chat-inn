@@ -97,20 +97,28 @@ const Chat = ({ auth, db, setMessages, messages }) => {
               <div className={styles.chat_view}>
                 {messages.map((message) => (
                   <>
+                    {console.log(message)}
                     <div>
-                      {message.displayName !== auth.currentUser.displayName && (
+                      {message.text !== "uchj8899" &&
+                        message.displayName !==
+                          auth.currentUser.displayName && (
+                          <>
+                            <div className={styles.received_msg}>
+                              <p className={styles.message_text}>
+                                {message.text}
+                              </p>
+                              <p className={styles.username}>
+                                {message.displayName}, {message.timestamp}
+                              </p>
+                            </div>
+                          </>
+                        )}
+                      {message.text === "uchj8899" && (
                         <>
-                          <div className={styles.received_msg}>
-                            <p className={styles.message_text}>
-                              {message.text}
-                            </p>
-                            <p className={styles.username}>
-                              {message.displayName}, {message.timestamp}
-                            </p>
-                          </div>
+                          <p className={styles.displayName}>{message.displayName} has joined the Inn</p>
                         </>
                       )}
-                      {message.displayName === auth.currentUser.displayName && (
+                      {message.text !== "uchj8899" && message.displayName === auth.currentUser.displayName && (
                         <>
                           <div className={styles.send_msg}>
                             <p className={styles.message_text1}>

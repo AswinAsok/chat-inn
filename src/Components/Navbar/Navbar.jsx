@@ -8,8 +8,7 @@ const Navbar = ({ auth, db }) => {
   const navigate = useNavigate();
 
   const logout = async () => {
-    console.log(auth.currentUser.email === "elon@musk.com");
-    const res = await deleteDoc(doc(db, "activeUsers", auth.currentUser.email));
+    const res = await deleteDoc(doc(db, "messages", auth.currentUser.email));
     console.log(res);
     console.log(auth.currentUser.email);
     signOut(auth)

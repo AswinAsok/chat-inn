@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, Timestamp } from "firebase/firestore";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -16,8 +16,10 @@ const Login = ({ auth, db }) => {
         const user = userCredential.user;
         console.log(user.accessToken);
         localStorage.setItem("token", user.accessToken);
-        setDoc(doc(db, "activeUsers", email), {
+        setDoc(doc(db, "messages", email), {
           displayName: user.displayName,
+          text: "uchj8899",
+          timestamp: Timestamp.now(),
         });
         navigate("/chat");
         // ...
