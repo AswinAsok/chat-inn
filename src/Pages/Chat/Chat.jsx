@@ -15,12 +15,14 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 
 const Chat = ({ auth, db, setMessages, messages }) => {
-  TimeAgo.addDefaultLocale(en);
+  TimeAgo.setDefaultLocale(en.locale);
+  TimeAgo.addLocale(en);
   const navigate = useNavigate();
   const timeAgo = new TimeAgo("en-US");
   const bottomRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [message, setMessage] = useState("");
+  const [active, setActive] = useState([]);
 
   const sentMessage = async () => {
     const docRef = await addDoc(collection(db, "messages"), {
@@ -41,15 +43,12 @@ const Chat = ({ auth, db, setMessages, messages }) => {
   }, [messages]);
 
   useEffect(() => {
-    console.log(auth.current);
-
     setIsLoading(true);
     onSnapshot(
       query(collection(db, "messages"), orderBy("timestamp", "asc")),
       (snapshot) => {
         setMessages([]);
         snapshot.docs.map(function (doc) {
-          console.log(doc.data());
           setMessages((prev) => [
             ...prev,
             {
@@ -64,8 +63,25 @@ const Chat = ({ auth, db, setMessages, messages }) => {
         console.log(error);
       }
     );
+    setIsLoading(false);
+  }, []);
 
-    console.log(messages);
+  //Getting Active Users
+  useEffect(() => {
+    setIsLoading(true);
+    onSnapshot(
+      query(collection(db, "activeUsers")),
+      (snapshot) => {
+        setActive([]);
+        snapshot.docs.map(function (doc) {
+          setActive((prev) => [...prev, doc.data().displayName]);
+        });
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    console.log(active);
     setIsLoading(false);
   }, []);
 
