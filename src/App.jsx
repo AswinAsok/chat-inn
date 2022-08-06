@@ -4,7 +4,7 @@ import SignUp from "./Pages/Authentication/SignUp/SignUp";
 
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Chat from "./Pages/Chat/Chat";
 import { getFirestore } from "firebase/firestore";
 import { useState, useEffect } from "react";

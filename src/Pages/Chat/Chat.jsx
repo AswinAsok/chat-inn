@@ -37,7 +37,7 @@ const Chat = ({ auth, db, setMessages, messages, stars }) => {
 
   useEffect(() => {
     if (auth.currentUser === null) {
-      // navigate("/");
+      navigate("/");
     }
   }, []);
 
