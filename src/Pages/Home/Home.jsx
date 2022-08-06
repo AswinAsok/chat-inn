@@ -19,14 +19,21 @@ const Home = () => {
                     The Chat 'Inn
                   </p>
                   <p className={styles.fv_tagline}>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Exercitationem at velit quisquam tenetur quia aperiam minus
-                    temporibus laboriosam. Accusantium fugiat harum, sed
-                    provident facere aliquam.
+                    The Chat'Inn is a simple and minimal realtime chat
+                    application whose database is powered by firebase and
+                    firestore. The frontend part is complete made using React.js
+                    and made responsive using normal css properties.
                   </p>
+                  <div className={styles.buttons}>
+                    <button className={styles.btn}>Github Star</button>
+                    <button className={styles.btn}>Try It</button>
+                  </div>
                 </div>
-                <div className={styles.fv_image}>
+                <div className={styles.fv_img}>
                   <img src={FirstView} alt="" className={styles.fv_image} />
+                  <p className={styles.aswinasok}>
+                    Designed, Developed, Described by Aswin Asok
+                  </p>
                 </div>
               </div>
             </div>
