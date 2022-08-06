@@ -1,10 +1,11 @@
 .navbarmain_container {
+  color: white;
   background-color: #8f00ff;
   opacity: 1;
-  background-image:  radial-gradient(#e5c3ff 1.2000000000000002px, transparent 1.2000000000000002px), radial-gradient(#e5c3ff 1.2000000000000002px, #8f00ff 1.2000000000000002px);
-  background-size: 48px 48px;
-  background-position: 0 0,24px 24px;
-  color: white;
+  background-image: radial-gradient(#ffffff75 0.9px, transparent 0.9px),
+    radial-gradient(#ffffff75 0.9px, #8f00ff 0.9px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
   font-family: "Noto Sans";
   font-weight: 600;
 
@@ -42,15 +43,22 @@
 }
 
 .navbar {
-  margin: 0 2rem;
+  margin: 0 1rem;
   display: flex;
   align-items: center;
 
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .logout {
-  display: none;
+  display: block;
+  background-color: #fff;
+  color: #8f00ff;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  font-weight: 500;
 }
 
 @media only screen and (min-width: 1000px) {

@@ -35,7 +35,7 @@ const Chat = ({ auth, db, setMessages, messages }) => {
 
   useEffect(() => {
     if (auth.currentUser === null) {
-      navigate("/login");
+      // navigate("/login");
     }
   }, []);
 
@@ -173,6 +173,11 @@ const Chat = ({ auth, db, setMessages, messages }) => {
               >
                 Sent
               </button>
+            </div>
+            <div className={styles.buttons}>
+              <button className={styles.star}>Give A Star</button>
+              <button className={styles.star}>Upvotes</button>
+              <button className={styles.star}>Follow Me</button>
             </div>
           </div>
         </div>

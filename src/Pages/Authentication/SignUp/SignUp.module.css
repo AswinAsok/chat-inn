@@ -15,13 +15,10 @@
   color: white;
   background-color: #8f00ff;
   opacity: 1;
-  background-image: radial-gradient(
-      #e5c3ff 1.2000000000000002px,
-      transparent 1.2000000000000002px
-    ),
-    radial-gradient(#e5c3ff 1.2000000000000002px, #8f00ff 1.2000000000000002px);
-  background-size: 48px 48px;
-  background-position: 0 0, 24px 24px;
+  background-image: radial-gradient(#ffffff75 0.9px, transparent 0.9px),
+    radial-gradient(#ffffff75 0.9px, #8f00ff 0.9px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
 }
 
 .welcome_heading {
