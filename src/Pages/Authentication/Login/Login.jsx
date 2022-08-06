@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import CustomizedSnackbars from "../../../Components/SnackBar/SnackBar";
 
 import styles from "./Login.module.css";
+import favicon from "./favicon.png"
 
 const Login = ({ auth, db }) => {
   const [email, setEmail] = useState("");
@@ -46,6 +47,9 @@ const Login = ({ auth, db }) => {
       <div className={styles.pagemain_container}>
         <div className={styles.page_container}>
           <div className={styles.welcome_container}>
+            <a href="/">
+              <img src={favicon} alt="" className={styles.home} />
+            </a>
             <p className={styles.welcome_heading}>Login to Chat'inn</p>
             <p className={styles.welcome_text}>
               Welcome to Chat'in. Hope you already have already created a

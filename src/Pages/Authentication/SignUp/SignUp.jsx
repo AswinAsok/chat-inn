@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./SignUp.module.css";
 import { useNavigate } from "react-router-dom";
 import CustomizedSnackbars from "../../../Components/SnackBar/SnackBar";
+import favicon from "./favicon.png";
 
 const SignUp = ({ auth }) => {
   const [email, setEmail] = useState("");
@@ -49,6 +50,9 @@ const SignUp = ({ auth }) => {
       <div className={styles.pagemain_container}>
         <div className={styles.page_container}>
           <div className={styles.welcome_container}>
+            <a href="/">
+              <img src={favicon} alt="" className={styles.home} />
+            </a>
             <p className={styles.welcome_heading}>Welcome to Chat'inn</p>
             <p className={styles.welcome_text}>
               Welcome to Chat'inn. The simple and minimalistic global chatting

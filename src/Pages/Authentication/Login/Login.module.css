@@ -69,6 +69,12 @@ input:focus {
   font-weight: 600;
 }
 
+.home{
+  width: 8rem;
+  border-radius: 10px;
+}
+
+
 @media only screen and (min-width: 1000px) {
   .page_container {
     margin: auto;

@@ -26,13 +26,15 @@ const Navbar = ({ auth, db }) => {
       <div className={styles.navbar_container}>
         <div className={styles.navbar}>
           <div className={styles.navbar_text}>
-            <p className={styles.product}>
-              The
-              <br />
-              Chat
-              <br />
-              'Inn
-            </p>
+            <a href="/">
+              <p className={styles.product}>
+                The
+                <br />
+                Chat
+                <br />
+                'Inn
+              </p>
+            </a>
             <hr />
             <p className={styles.tagline}>
               Global
@@ -56,7 +58,11 @@ const Navbar = ({ auth, db }) => {
           )}
           {!auth && (
             <div className={styles.navbar_options}>
-              <a href="https://twitter.com/_aswin_asok_" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://twitter.com/_aswin_asok_"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <button className={styles.logout}>Follow Me</button>
               </a>
             </div>
