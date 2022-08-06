@@ -62,6 +62,14 @@ input:focus {
   color: white;
 }
 
+
+.already {
+  margin-top: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
 @media only screen and (min-width: 1000px) {
   .page_container {
     margin: auto;

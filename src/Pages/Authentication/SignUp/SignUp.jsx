@@ -51,10 +51,9 @@ const SignUp = ({ auth }) => {
           <div className={styles.welcome_container}>
             <p className={styles.welcome_heading}>Welcome to Chat'inn</p>
             <p className={styles.welcome_text}>
-              Welcome to Chat'in. if already have already created a account else
-              click here. If you are new here this is a simple application with
-              a global chat system. Everyone can chat here and everyone will see
-              it.
+              Welcome to Chat'inn. The simple and minimalistic global chatting
+              platform. With realtime updates, clean user interface and much
+              more intersting features.
             </p>
           </div>
           <div className={styles.signup_container}>
@@ -87,6 +86,9 @@ const SignUp = ({ auth }) => {
                 className={styles.password_field}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <a href="/login" target="_blank" rel="noopener noreferrer">
+                <p className={styles.already}>Already have an account?</p>
+              </a>
               <button
                 onClick={signup}
                 className={styles.signup_btn}

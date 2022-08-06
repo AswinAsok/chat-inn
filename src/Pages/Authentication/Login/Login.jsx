@@ -36,7 +36,7 @@ const Login = ({ auth, db }) => {
 
   return (
     <>
-      {error && error.length>0 &&(
+      {error && error.length > 0 && (
         <CustomizedSnackbars
           message={error}
           severity="error"
@@ -74,7 +74,9 @@ const Login = ({ auth, db }) => {
                 className={styles.password_field}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <p className={styles.already}>Don't have an Account? Sign Up</p>
+              <a href="/signup" target="_blank" rel="noopener noreferrer">
+                <p className={styles.already}>Don't have an Account? Sign Up</p>
+              </a>
               <button
                 onClick={login}
                 className={styles.signup_btn}

@@ -35,7 +35,7 @@ const Chat = ({ auth, db, setMessages, messages }) => {
 
   useEffect(() => {
     if (auth.currentUser === null) {
-      // navigate("/login");
+      navigate("/");
     }
   }, []);
 
@@ -152,7 +152,8 @@ const Chat = ({ auth, db, setMessages, messages }) => {
                 name="input"
                 id="input"
                 value={message}
-                placeholder="Enter Message Here!"
+                placeholder="Enter Message! (Max 100 Characters)"
+                maxlength="100"
                 className={styles.input_field}
                 onChange={(e) => {
                   setMessage(e.target.value);

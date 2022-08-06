@@ -29,8 +29,8 @@ const Home = () => {
                   </p>
                   <div className={styles.buttons}>
                     <button className={styles.btn}>Github Star</button>
-                    <a href="/chat" target="_blank" rel="noopener noreferrer">
-                      <button className={styles.btn}>Try It</button>
+                    <a href="/signup" target="_blank" rel="noopener noreferrer">
+                      <button className={styles.btn}>Login/SignUp</button>
                     </a>
                   </div>
                 </div>
@@ -81,7 +81,9 @@ const Home = () => {
 
               <div className={styles.thrid_view}>
                 <div className={styles.tv_texts}>
-                  <p className={styles.tv_heading}>The Technologies Implemented</p>
+                  <p className={styles.tv_heading}>
+                    The Technologies Implemented
+                  </p>
                   <p className={styles.tv_tagline}>
                     These are the list of technologies, packages and products
                     which were used to make this project to its present state.
