@@ -9,11 +9,12 @@ import Chat from "./Pages/Chat/Chat";
 import { getFirestore } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import Home from "./Pages/Home/Home";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   const [messages, setMessages] = useState([]);
   const [stars, setStars] = useState("");
- 
+
   const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -28,7 +29,6 @@ function App() {
   const auth = getAuth();
   const db = getFirestore(app);
 
-
   useEffect(() => {
     fetch(`https://api.github.com/repos/AswinAsok/chat-inn`)
       .then((res) => res.json())
@@ -36,7 +36,6 @@ function App() {
         setStars(data.stargazers_count);
       });
   }, []);
-
 
   return (
     <div className="App">
@@ -59,6 +58,8 @@ function App() {
           />
         </Routes>
       </Router>
+
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,21 @@
+.footer_container {
+  padding: 2rem;
+  color: white;
+  background-color: #8f00ff;
+  opacity: 1;
+  background-image: radial-gradient(#ffffff75 0.9px, transparent 0.9px),
+    radial-gradient(#ffffff75 0.9px, #8f00ff 0.9px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
+  font-family: "Noto Sans";
+}
+
+@media only screen and (min-width: 1000px) {
+  .footer_view {
+    margin: auto;
+    max-width: 1000px;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+  }
+}
