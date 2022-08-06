@@ -6,8 +6,9 @@ import FirstView from "./assets/FirstView.png";
 import realtime from "./assets/realtime.png";
 import active from "./assets/active.png";
 import ui from "./assets/ui.png";
+import star from "./assets/star.png";
 
-const Home = () => {
+const Home = ({ stars }) => {
   return (
     <>
       <Navbar />
@@ -28,9 +29,18 @@ const Home = () => {
                     and made responsive using normal css properties.
                   </p>
                   <div className={styles.buttons}>
-                    <button className={styles.btn}>Github Star</button>
                     <a href="/signup" target="_blank" rel="noopener noreferrer">
                       <button className={styles.btn}>Login/SignUp</button>
+                    </a>
+                    <a
+                      href="https://github.com/AswinAsok/chat-inn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <button className={styles.btn}>
+                        <img src={star} alt="" className={styles.btn_img} />
+                        <p>{stars} Stars</p>
+                      </button>
                     </a>
                   </div>
                 </div>

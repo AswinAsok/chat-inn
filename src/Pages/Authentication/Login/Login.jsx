@@ -74,7 +74,7 @@ const Login = ({ auth, db }) => {
                 className={styles.password_field}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <a href="/signup" target="_blank" rel="noopener noreferrer">
+              <a href="/signup">
                 <p className={styles.already}>Don't have an Account? Sign Up</p>
               </a>
               <button

@@ -13,8 +13,10 @@ import en from "javascript-time-ago/locale/en";
 import styles from "./Chat.module.css";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
+import twitter from "./assets/twitter.png";
+import star from "./assets/star.png"
 
-const Chat = ({ auth, db, setMessages, messages }) => {
+const Chat = ({ auth, db, setMessages, messages, stars }) => {
   TimeAgo.setDefaultLocale(en.locale);
   TimeAgo.addLocale(en);
   const navigate = useNavigate();
@@ -35,7 +37,7 @@ const Chat = ({ auth, db, setMessages, messages }) => {
 
   useEffect(() => {
     if (auth.currentUser === null) {
-      navigate("/");
+      // navigate("/");
     }
   }, []);
 
@@ -176,9 +178,20 @@ const Chat = ({ auth, db, setMessages, messages }) => {
               </button>
             </div>
             <div className={styles.buttons}>
-              <button className={styles.star}>Give A Star</button>
-              <button className={styles.star}>Upvotes</button>
-              <button className={styles.star}>Follow Me</button>
+              <a
+                href="https://github.com/AswinAsok/chat-inn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className={styles.star}>
+                  <img src={star} alt="" className={styles.btn_img} />
+                  <p>{stars} Stars</p>
+                </button>
+              </a>
+              <button className={styles.star}>
+                <img src={twitter} alt="" className={styles.btn_img} />
+                <p>Follow Me</p>
+              </button>
             </div>
           </div>
         </div>

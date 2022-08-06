@@ -40,16 +40,22 @@ a {
   width: 20rem;
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
 .btn {
   background-color: #fff;
   color: #8f00ff;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   font-family: "Noto Sans";
   margin-right: 1rem;
   font-size: 0.95rem;
   margin-top: 1rem;
   border-radius: 3px;
+  display: flex;
 }
 
 .aswinasok {
@@ -224,4 +230,9 @@ a {
     font-family: "Poppins", sans-serif;
     margin-left: 1rem;
   }
+}
+
+.btn_img {
+  width: 1.5rem;
+  margin-right: 0.5rem;
 }
