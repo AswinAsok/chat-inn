@@ -81,11 +81,96 @@
     width: 25rem;
   }
 
-  .aswinasok{
+  .aswinasok {
     display: block;
     font-family: "Noto Sans", sans-serif;
     text-align: center;
     font-size: 1rem;
     font-weight: 500;
   }
+}
+
+/* Second Section Styles */
+
+.second_view {
+  margin-top: 2rem;
+}
+
+.sv_heading {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.sv_tagline {
+  font-family: "Poppins", sans-serif;
+}
+
+@media only screen and (min-width: 1000px) {
+  .second_view {
+    margin-top: 5rem;
+  }
+  .sv_texts {
+    text-align: center;
+  }
+
+  .sv_heading {
+    font-size: 3rem;
+  }
+
+  .sv_tagline {
+    margin: auto;
+    width: 60%;
+  }
+}
+
+.sv_points {
+  margin-top: 2rem;
+}
+
+.sv_point {
+  margin: 1rem 0;
+}
+
+.svp_heading {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.25rem;
+}
+
+.svp_text {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+}
+
+.svp_image {
+  width: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media only screen and (min-width: 1000px) {
+  .sv_points {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .sv_point {
+    margin: 1rem;
+    text-align: center;
+  }
+
+  .svp_heading {
+
+    font-size: 1.5rem;
+  }
+  
+  .svp_text {
+    font-size: 1rem;
+  }
+
+  .svp_image {
+    width: 3.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
 }
