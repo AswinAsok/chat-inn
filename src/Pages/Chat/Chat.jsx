@@ -14,7 +14,7 @@ import styles from "./Chat.module.css";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import twitter from "./assets/twitter.png";
-import star from "./assets/star.png"
+import star from "./assets/star.png";
 
 const Chat = ({ auth, db, setMessages, messages, stars }) => {
   TimeAgo.setDefaultLocale(en.locale);
@@ -188,10 +188,13 @@ const Chat = ({ auth, db, setMessages, messages, stars }) => {
                   <p>{stars} Stars</p>
                 </button>
               </a>
-              <button className={styles.star}>
-                <img src={twitter} alt="" className={styles.btn_img} />
-                <p>Follow Me</p>
-              </button>
+              <a href="https://twitter.com/_aswin_asok_" target="_blank" rel="noopener noreferrer">
+                <button className={styles.star}>
+                  <img src={twitter} alt="" className={styles.btn_img} />
+                  <p>Follow Me</p>
+                </button>
+              </a>
+              I
             </div>
           </div>
         </div>
