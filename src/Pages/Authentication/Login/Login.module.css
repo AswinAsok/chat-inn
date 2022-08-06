@@ -44,7 +44,8 @@
   border-radius: 2px;
   padding: 0.75rem 3.75rem;
   padding-left: 0.75rem;
-  margin: 0.5rem 0rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 textarea:focus,
@@ -64,12 +65,20 @@ input:focus {
   color: white;
 }
 
+.already {
+  margin-top: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
 @media only screen and (min-width: 1000px) {
   .page_container {
     margin: auto;
     max-width: 1000px;
     align-items: center;
     text-align: center;
+
   }
 
   .signup_box {

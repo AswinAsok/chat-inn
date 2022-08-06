@@ -139,8 +139,15 @@
 }
 
 .displayName {
+  margin-top: 0.25rem;
   color: #969696;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 0.9rem;
   text-align: center;
+}
+
+@media only screen and (min-width: 1000px) {
+  .message_text, .message_text1 {
+    max-width: 20vw;
+  }
 }

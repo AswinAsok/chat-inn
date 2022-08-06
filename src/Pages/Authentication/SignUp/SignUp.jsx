@@ -2,11 +2,13 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import React, { useState } from "react";
 import styles from "./SignUp.module.css";
 import { useNavigate } from "react-router-dom";
+import CustomizedSnackbars from "../../../Components/SnackBar/SnackBar";
 
 const SignUp = ({ auth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const signup = () => {
@@ -17,7 +19,7 @@ const SignUp = ({ auth }) => {
         localStorage.setItem("token", user.accessToken);
         console.log(user.accessToken);
         updateProfile(auth.currentUser, {
-          displayName: username,
+          displayName: username || email.substring(0, email.lastIndexOf("@")),
         })
           .then((response) => {
             navigate("/login");
@@ -29,16 +31,21 @@ const SignUp = ({ auth }) => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode);
+        setError(errorCode);
         console.log(errorMessage);
         // ..
       });
-
-    
   };
 
   return (
     <>
+      {error && error.length > 0 && (
+        <CustomizedSnackbars
+          message={error}
+          severity="error"
+          setError={setError}
+        />
+      )}
       <div className={styles.pagemain_container}>
         <div className={styles.page_container}>
           <div className={styles.welcome_container}>

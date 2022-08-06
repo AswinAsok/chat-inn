@@ -2,12 +2,14 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc, Timestamp } from "firebase/firestore";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CustomizedSnackbars from "../../../Components/SnackBar/SnackBar";
 
 import styles from "./Login.module.css";
 
 const Login = ({ auth, db }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const login = () => {
     signInWithEmailAndPassword(auth, email, password)
@@ -27,13 +29,20 @@ const Login = ({ auth, db }) => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode);
+        setError(errorCode);
         console.log(errorMessage);
       });
   };
 
   return (
     <>
+      {error && error.length>0 &&(
+        <CustomizedSnackbars
+          message={error}
+          severity="error"
+          setError={setError}
+        />
+      )}
       <div className={styles.pagemain_container}>
         <div className={styles.page_container}>
           <div className={styles.welcome_container}>
@@ -65,6 +74,7 @@ const Login = ({ auth, db }) => {
                 className={styles.password_field}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <p className={styles.already}>Don't have an Account? Sign Up</p>
               <button
                 onClick={login}
                 className={styles.signup_btn}
