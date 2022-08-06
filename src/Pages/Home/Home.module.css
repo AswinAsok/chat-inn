@@ -1,0 +1,66 @@
+.homemain_container {
+  color: white;
+  background-color: #8f00ff;
+  opacity: 1;
+  background-image: radial-gradient(#ffffff75 0.9px, transparent 0.9px),
+    radial-gradient(#ffffff75 0.9px, #8f00ff 0.9px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
+  min-height: 100vh;
+}
+
+.homemain_container {
+  padding: 2rem;
+}
+
+.first_view {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.fv_heading {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+}
+
+.fv_tagline {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+}
+
+.fv_image {
+  width: 20rem;
+}
+
+@media only screen and (min-width: 1000px) {
+  .home_container {
+    margin: auto;
+    max-width: 1000px;
+  }
+
+  .first_view {
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .fv_heading {
+    font-family: "Noto Sans", sans-serif;
+    font-size: 4rem;
+    font-weight: 600;
+  }
+  
+  .fv_tagline {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    width: 80%;
+  }
+  
+  .fv_image {
+    width: 25rem;
+  }
+}

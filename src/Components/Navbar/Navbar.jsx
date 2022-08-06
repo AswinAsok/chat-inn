@@ -42,16 +42,18 @@ const Navbar = ({ auth, db }) => {
               Application
             </p>
           </div>
-          <div className={styles.navbar_options}>
-            <button
-              onClick={() => {
-                logout();
-              }}
-              className={styles.logout}
-            >
-              Logout
-            </button>
-          </div>
+          {auth && (
+            <div className={styles.navbar_options}>
+              <button
+                onClick={() => {
+                  logout();
+                }}
+                className={styles.logout}
+              >
+                Logout
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Chat from "./Pages/Chat/Chat";
 import { getFirestore } from "firebase/firestore";
 import { useState } from "react";
+import Home from "./Pages/Home/Home";
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -28,6 +29,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+        <Route path="/" element={<Home/>} />
           <Route path="/login" element={<Login auth={auth} db={db} />} />
           <Route path="/signup" element={<SignUp auth={auth} />} />
           <Route
