@@ -54,6 +54,13 @@ const Navbar = ({ auth, db }) => {
               </button>
             </div>
           )}
+          {!auth && (
+            <div className={styles.navbar_options}>
+              <a href="https://twitter.com/_aswin_asok_" target="_blank" rel="noopener noreferrer">
+                <button className={styles.logout}>Follow Me</button>
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>

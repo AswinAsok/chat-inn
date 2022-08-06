@@ -29,7 +29,9 @@ const Home = () => {
                   </p>
                   <div className={styles.buttons}>
                     <button className={styles.btn}>Github Star</button>
-                    <button className={styles.btn}>Try It</button>
+                    <a href="/chat" target="_blank" rel="noopener noreferrer">
+                      <button className={styles.btn}>Try It</button>
+                    </a>
                   </div>
                 </div>
                 <div className={styles.fv_img}>
@@ -59,7 +61,7 @@ const Home = () => {
                     </p>
                   </div>
                   <div className={styles.sv_point}>
-                  <img src={active} alt="" className={styles.svp_image} />
+                    <img src={active} alt="" className={styles.svp_image} />
                     <p className={styles.svp_heading}>Active Users</p>
                     <p className={styles.svp_text}>
                       You get to see who all the online at the present time to
@@ -67,13 +69,34 @@ const Home = () => {
                     </p>
                   </div>
                   <div className={styles.sv_point}>
-                  <img src={ui} alt="" className={styles.svp_image} />
+                    <img src={ui} alt="" className={styles.svp_image} />
                     <p className={styles.svp_heading}>User Interface</p>
                     <p className={styles.svp_text}>
                       The User Interface is so minimal that you never know how
                       fast time passes.
                     </p>
                   </div>
+                </div>
+              </div>
+
+              <div className={styles.thrid_view}>
+                <div className={styles.tv_texts}>
+                  <p className={styles.tv_heading}>The Technologies Implemented</p>
+                  <p className={styles.tv_tagline}>
+                    These are the list of technologies, packages and products
+                    which were used to make this project to its present state.
+                  </p>
+                </div>
+                <div className={styles.tv_points}>
+                  <ul>
+                    <li>Aswin's Logical Thinking and Writing Abilties</li>
+                    <li>React.js</li>
+                    <li>Firebase Authentication</li>
+                    <li>Firestore Realtime Database</li>
+                    <li>Hyper Text Markup Language</li>
+                    <li>Cascading Style Sheets</li>
+                    <li>Material UI for Snackbars</li>
+                  </ul>
                 </div>
               </div>
             </div>

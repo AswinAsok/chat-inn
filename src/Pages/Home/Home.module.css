@@ -9,6 +9,11 @@
   min-height: 100vh;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .homemain_container {
   padding: 2rem;
 }
@@ -135,6 +140,7 @@
 .svp_heading {
   font-family: "Noto Sans", sans-serif;
   font-size: 1.25rem;
+  font-weight: 500;
 }
 
 .svp_text {
@@ -160,10 +166,9 @@
   }
 
   .svp_heading {
-
     font-size: 1.5rem;
   }
-  
+
   .svp_text {
     font-size: 1rem;
   }
@@ -172,5 +177,51 @@
     width: 3.5rem;
     margin-bottom: 0.5rem;
   }
-  
+}
+
+/* Third Section Styles */
+
+.thrid_view {
+  margin: 2rem 0;
+}
+
+.tv_heading {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.tv_tagline {
+  font-family: "Poppins", sans-serif;
+}
+
+.tv_points {
+  margin-top: 1rem;
+  font-family: "Poppins", sans-serif;
+  margin-left: 1rem;
+}
+
+@media only screen and (min-width: 1000px) {
+  .thrid_view {
+    margin: 2rem 0;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tv_heading {
+    font-size: 3rem;
+  }
+
+  .tv_tagline {
+    width: 60%;
+  }
+
+  .tv_points {
+    margin-top: 1rem;
+    font-size: 1.15rem;
+    font-family: "Poppins", sans-serif;
+    margin-left: 1rem;
+  }
 }
