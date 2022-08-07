@@ -2,13 +2,16 @@ import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import styles from "./Home.module.css";
 
+
 import FirstView from "./assets/FirstView.png";
 import realtime from "./assets/realtime.png";
 import active from "./assets/active.png";
 import ui from "./assets/ui.png";
 import star from "./assets/star.png";
+import { useNavigate } from "react-router-dom";
 
-const Home = ({ stars }) => {
+const Home = ({ stars, auth }) => {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -29,9 +32,20 @@ const Home = ({ stars }) => {
                     and made responsive using normal css properties.
                   </p>
                   <div className={styles.buttons}>
-                    <a href="/signup" target="_blank" rel="noopener noreferrer">
-                      <button className={styles.btn}>Login/SignUp</button>
-                    </a>
+                    <button
+                      onClick={() => {
+                        if(auth.currentUser){
+                          navigate("/chat");
+                        }
+                        else{
+                          navigate("/signup");
+                        }
+                      }}
+                      className={styles.btn}
+                    >
+                      Login/SignUp
+                    </button>
+
                     <a
                       href="https://github.com/AswinAsok/chat-inn"
                       target="_blank"

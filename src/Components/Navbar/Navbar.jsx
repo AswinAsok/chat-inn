@@ -26,15 +26,19 @@ const Navbar = ({ auth, db }) => {
       <div className={styles.navbar_container}>
         <div className={styles.navbar}>
           <div className={styles.navbar_text}>
-            <a href="/">
-              <p className={styles.product}>
-                The
-                <br />
-                Chat
-                <br />
-                'Inn
-              </p>
-            </a>
+            <p
+              onClick={() => {
+                navigate("/");
+              }}
+              className={styles.product}
+            >
+              The
+              <br />
+              Chat
+              <br />
+              'Inn
+            </p>
+
             <hr />
             <p className={styles.tagline}>
               Global
